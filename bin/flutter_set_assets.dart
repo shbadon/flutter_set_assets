@@ -57,15 +57,18 @@ Future<List<String>> getDirectoryElement(Directory dir) async {
   List<String> elementList = [];
   var elements = dir.list(recursive: false);
   await elements.forEach((element) {
-    elementList.add(element.uri.toString().split('/').last);
+    final item = element.path.split('/').last.split('\\').last;
+    elementList.add(item);
   });
 
   return elementList;
 }
 
 Future<void> updateDartFile(String directoryName, String variables) async {
-  final filePath = '${path.current}/lib/app_$directoryName.dart';
-  final file = File(filePath);
+
+  final fileDirectory = Directory('${path.current}/lib/constants/app_$directoryName.dart');
+
+  final file = File(fileDirectory.path);
 
   final fileData =
       await file.openRead().map(utf8.decode).transform(LineSplitter()).toList();
