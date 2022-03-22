@@ -11,7 +11,6 @@ void main(List<String> arguments) async {
   print('Program Started...');
 
   await setAssets('anim');
-  await setAssets('fonts');
   await setAssets('icons');
   await setAssets('images');
   await setAssets('logos');
@@ -37,7 +36,7 @@ Future<void> setAssets(String directoryName) async {
   }
 
   await updateDartFile(directoryName, variables);
-  print('The "${directoryName.titleCase}" directory element is set. \u2713');
+  print('The "${directoryName.titleCase}" directory element variables are set in the "app_$directoryName.dart" file. \u2713');
 }
 
 Future<String> joinText(String oldText, String newText,
