@@ -7,7 +7,7 @@ import 'package:path/path.dart' as path;
 
 void main(List<String> arguments) async {
   print(
-      'Welcome to Flutter Set Assets Program. This program set directory element in dart file. This program was created by "Shuoib Hossain Badon"');
+      'Welcome to Flutter Set Assets Program. This program set directory elements variable in dart file. This program was created by "Shuoib Hossain Badon"');
   print('Program Started...');
 
   await setAssets('anim');
