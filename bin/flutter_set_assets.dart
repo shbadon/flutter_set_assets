@@ -32,7 +32,7 @@ Future<void> setAssets(String directoryName) async {
   for (var element in elementList) {
     final elementName = path.basenameWithoutExtension(element).camelCase;
     final variable =
-        '''static String  get $elementName => 'assets/$directoryName/$element';''';
+        '''static String get $elementName => 'assets/$directoryName/$element';''';
     variables = await joinText(variables, variable);
   }
 
@@ -65,8 +65,8 @@ Future<List<String>> getDirectoryElement(Directory dir) async {
 }
 
 Future<void> updateDartFile(String directoryName, String variables) async {
-
-  final fileDirectory = Directory('${path.current}/lib/constants/app_$directoryName.dart');
+  final fileDirectory =
+      Directory('${path.current}/lib/constants/app_$directoryName.dart');
 
   final file = File(fileDirectory.path);
 
